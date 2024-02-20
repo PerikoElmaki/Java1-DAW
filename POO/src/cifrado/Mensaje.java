@@ -40,46 +40,52 @@ public class Mensaje {
 	public String Sustitucion(int clave) {
 		String cifrado="";
 		for(int i=0; i<mensaje.length(); i++) {
-			int carac=mensaje.charAt(i);
 			//Primero controlamos las mayúsculas, cambiarlas de pos
-			if((char)carac>='A'&& (char)carac<='Z') {
-				if(carac+clave>90) //si es mayor a la Z, que de la vuelta 
-					cifrado+=(char)(carac+clave-25);
-				else
-					cifrado+=(char)(carac+clave);
+			if(mensaje.charAt(i)>='A'&& mensaje.charAt(i)<='Z') {
+				int carac=mensaje.charAt(i)+clave;
+				if((char)carac>'Z') //si es mayor a la Z, que de la vuelta 
+					carac-=26;
+				cifrado+=(char)carac;
 			//Después las minúsculas 
-			}else if((char)carac>='a'&& (char)carac<='z') {
-				if(carac+clave>122)//si es mayor que la z
-					cifrado+=(char)(carac+clave-25);
-				else
-					cifrado+=(char)(carac+clave);
+			}else if(mensaje.charAt(i)>='a'&& mensaje.charAt(i)<='z') {
+				int carac=mensaje.charAt(i)+clave;
+				if((char)carac >'z')//si es mayor que la z
+					carac-=26;
+				cifrado+=(char)carac;
 			//Ahora copiamos espacios tal cual
 			}else
-				cifrado+=(char)(carac);
+				cifrado+=mensaje.charAt(i);
 				
 		}
 		return cifrado;
 	}
-	
-	public String descifradoSusti(String cifrado,int clave) {
-		String descifrado="";
-		for(int i=0; i<cifrado.length(); i++) {
-			int carac=cifrado.charAt(i);
-			if((char)carac>='A'&& (char)carac<='Z') {
-				if((carac-clave)<60)
-					descifrado+=(char)(carac-clave+25);
-				else
-					descifrado+=(char)(carac-clave);
-			}else if((char)carac>='a'&& (char)carac<='z') {
-				if((carac-clave)<97)
-					descifrado+=(char)(carac-clave+25);
-				else
-					descifrado+=(char)(carac-clave);
-			}else
-				descifrado+=(char)(carac);
+
+	public String DescifrarSustitucion(int clave) {
+
+		String criptograma="";
+		for (int i = 0; i < mensaje.length(); i++) {
+			if (mensaje.charAt(i)>='A' && mensaje.charAt(i)<='Z') {
+				int caracter=mensaje.charAt(i)-clave;
+				if ((char)caracter<'A') 
+					caracter+=26; //sumando A la a para volver a emprezar
+				criptograma+=(char)caracter;
+			}
+			//controlar de la 'a' a la 'z' y que sea circular 
+			else if (mensaje.charAt(i)>='a' && mensaje.charAt(i)<='z') {
+				int caracter=mensaje.charAt(i)-clave;
+				if ((char)caracter<'a') 
+					caracter+=26; //sumando a la a para volver a emprezar
+				criptograma+=(char)caracter;
+			}
+			else
+				criptograma+=mensaje.charAt(i);		// dejar los otros caracteres fuera del rango igual
+
 		}
-		return descifrado;
+		return criptograma;
+
 	}
+	
+
 	/**
 	 * Cifrado por la transposición de Riel
 	 * El mensaje se cifra alternando las letras en dos cadenas separadas y concatenando las dos cadenas
