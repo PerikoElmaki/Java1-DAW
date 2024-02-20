@@ -28,7 +28,15 @@ public class Mensaje {
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	
+	/**
+	 * Cifrado por sustitución
+	 * Sustituye cada carácter del mensaje a cifrar por el carácter que ocupa 'clave' posiciones en adelante
+	 * en el alfabeto
+	 * Cualquier otro carácter(incluidos espacios) se copiarán igual, sin cifrar.
+	 * Considera el alfabeto circular, despues de la Z va la A 
+	 * @param clave a aplicar en el cifrado por sustitución
+	 * @return criptograma al que se le ha aplicado el cifrado por sustitución
+	 */
 	public String Sustitucion(int clave) {
 		String cifrado="";
 		for(int i=0; i<mensaje.length(); i++) {
@@ -71,6 +79,25 @@ public class Mensaje {
 				descifrado+=(char)(carac);
 		}
 		return descifrado;
+	}
+	/**
+	 * Cifrado por la transposición de Riel
+	 * El mensaje se cifra alternando las letras en dos cadenas separadas y concatenando las dos cadenas
+	 * @return criptograma que se obtiene
+	 */
+	public String trasposicion() {
+		String criptograma="";
+		String par="";
+		String impar="";
+		for(int i=0; i<mensaje.length(); i++) {
+			if(i%2==0)
+				par+=mensaje.charAt(i);
+			else
+				impar+=mensaje.charAt(i);
+		}
+		criptograma=par+impar;
+		return criptograma;
+		
 	}
 	
 	
