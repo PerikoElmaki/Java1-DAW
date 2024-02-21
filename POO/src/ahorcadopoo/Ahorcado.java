@@ -61,9 +61,7 @@ public class Ahorcado {
 		return intentos;
 	}
 	
-	public boolean intentar(char letra) {
-		
-	}
+	
 
 	public boolean isAcertada() {
 		return acertada;
