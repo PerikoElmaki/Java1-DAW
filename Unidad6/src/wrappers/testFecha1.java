@@ -10,7 +10,7 @@ public class testFecha1 {
 											//formato: año,mes,dia,hora,minutos,segundo
 		GregorianCalendar f=new GregorianCalendar(2000,11,31,23,55,59); //poner todos los parámetros
 		System.out.println(f.get(Calendar.YEAR)); //2000
-		System.out.println(f.get(Calendar.MONTH)); //11
+		System.out.println(f.get(Calendar.MONTH)); //11           //EL MONTH VA DEL 0 al 11
 		System.out.println(f.get(Calendar.DAY_OF_YEAR));// 366(bisiesto)
 
 		System.out.println(f.get(Calendar.HOUR));  //mostrará 11
