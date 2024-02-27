@@ -120,7 +120,7 @@ public class Hora {
 		Date d=new Date();
 		GregorianCalendar c=new GregorianCalendar();
 		c.setTime(d);
-		hora=c.get(Calendar.HOUR);
+		hora=c.get(Calendar.HOUR_OF_DAY);
 		min=c.get(Calendar.MINUTE);
 		sec=c.get(Calendar.SECOND);
 	}
