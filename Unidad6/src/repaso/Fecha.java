@@ -1,4 +1,4 @@
-package fecha;
+package repaso;
 
 import java.util.*;
 
@@ -81,19 +81,32 @@ public class Fecha {
 	 */
 	@Override
 	public String toString() {
-		String d=""; String m=""; 
-		if(dia<10)
-			d+="0"+dia;
-		else
-			d+=dia;
-		if(mes<10)
-			m+="0"+mes;
-		else
-			m+=mes;
+		String fecha="";
 		
-		String fecha=d+"/"+m+"/"+año;
+		if(dia<10)
+			fecha+=0;
+		
+		fecha+=dia+"/";
+		
+		if(mes<10)
+			mes+=0;
+		
+		fecha+=mes+"/";
+		
+		fecha+=año;
+		
 		return fecha;
 	}
+	/**
+	 * Función que determina si un año es bisiesto o no
+	 * @return true si lo es,false si no 
+	 */
+	private boolean esBisiesto() {
+		if(año%4==0 && (año%400==0 || año%100!=0))
+			return true;
+		return false;
+	}
+	
 	/**
 	 * Indica si una fecha es correcta 
 	 * Tiene en cuenta años bisiestos 
@@ -126,27 +139,40 @@ public class Fecha {
 		//Si no ha devuelto anteriormente false, ahora si
 		return true;
 	}
+
+
 	/**
 	 * Establece como fecha la fecha actual del sistema 
 	 */
-	public void setFechaActual() {
-		Date f=new Date(); // coge todo de fecha actual, incluido segundos 
+	public void fechaActual() {
+		Date d=new Date();
 		GregorianCalendar c=new GregorianCalendar();
-		c.setTime(f);
+		c.setTime(d);
 		dia=c.get(Calendar.DAY_OF_MONTH);
-		mes=c.get(Calendar.MONTH)+1;
+		mes=c.get(Calendar.MONTH)+1; //calendar.month devuelve del 0 al 11
 		año=c.get(Calendar.YEAR);
 	}
-	/**
-	 * Función que determina si un año es bisiesto o no
-	 * @return true si lo es,false si no 
-	 */
-	private boolean esBisiesto() {
-		if(año%4==0 && (año%400==0 || año%100!=0))
-			return true;
-		return false;
-	}
 	
+	/**
+	 * Función que devuelve el número de días transcurridos en el año introducido hasta la fecha
+	 * @return número de días hasta la fecha introducida
+	 */
+	public int contaDias() {
+		int suma=0;
+		for(int i=1; i<mes; i++) {
+			if(i==4 || i==6 || i==9 ||i==11)
+				suma+=30;
+			else if(i==2) {
+				if(esBisiesto())
+					suma+=29;
+				else
+					suma+=28;
+			}else
+				suma+=31;
+		}
+			
+		return suma+dia;
+	}
 
 
 }

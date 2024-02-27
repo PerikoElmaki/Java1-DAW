@@ -32,7 +32,7 @@ public class FechaTest {
 		}
 		
 		System.out.print("\nFecha actual: "+actually);
-		if(f.isValid())
+		if(f.esCorrecta())
 			System.out.println("\nFecha introducida: "+f);
 		else
 			System.err.println("\nLa fecha no es correcta");
