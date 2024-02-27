@@ -1,4 +1,4 @@
-package wrappers;
+package fecha;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -30,8 +30,8 @@ public class Edad {
 		
 		int edad=hoy.get(Calendar.YEAR)-a;
 													//El MONTH VA DEL 0 al 11
-		if(dia<=hoy.get(Calendar.DAY_OF_MONTH) && m<=(hoy.get(Calendar.MONTH)+1))
-			edad+=1;
+		if(dia>hoy.get(Calendar.DAY_OF_MONTH) && m>=(hoy.get(Calendar.MONTH+1)))
+			edad--;
 		
 		System.out.println("Tienes: "+edad+" años");
 		

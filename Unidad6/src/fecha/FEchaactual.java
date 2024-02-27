@@ -1,8 +1,8 @@
-package wrappers;
+package fecha;
 
 import java.util.GregorianCalendar;
 import java.util.*;
-public class TestFecha2 {
+public class FEchaactual {
 
 	public static void main(String[] args) {
 		Date d=new Date();
