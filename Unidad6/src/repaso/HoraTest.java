@@ -17,6 +17,7 @@ public class HoraTest {
 			int sec=Integer.parseInt(sc.nextLine());
 			
 			h=new Hora(hora,min,sec);
+			
 		} catch (Exception e) {
 			System.err.println("ERROR en la intro de datos");
 			System.out.println("Vamos a usar la hora por defecto");
@@ -53,11 +54,11 @@ public class HoraTest {
 		
 		//Mostramos el tiempo
 		if(tiempo==1)
-			System.out.println("La fecha introducida es futura");
+			System.out.println("La hora introducida es futura");
 		else if(tiempo==2)
-			System.out.println("La fecha es pasada");
+			System.out.println("La hora es pasada");
 		else //si es 3
-			System.out.println("La fecha introducida es la actual");
+			System.out.println("La hora introducida es la actual");
 		
 		h.sigSec();
 		System.out.println("\nHora un segundo más tarde: "+h);

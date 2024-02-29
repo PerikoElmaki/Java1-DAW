@@ -34,6 +34,7 @@ public class EscapicuaYultimaCifra {
 		System.out.println(getUltimaCifra(num)+" la ultima cifra");
 		sc.close();
 
+		
 	}
 
 }

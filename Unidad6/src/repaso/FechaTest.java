@@ -37,7 +37,7 @@ public class FechaTest {
 		
 		//Contar los dias hata la fecha 
 		System.out.println("\nDias hasta la fecha actual: "+actual.contaDias());
-		System.out.println("Dias hasta fecha introducida: "+f.contaDias());
+		System.out.println("Dias del año hasta fecha introducida: "+f.contaDias());
 		
 		
 		
