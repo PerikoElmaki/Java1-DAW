@@ -3,6 +3,7 @@
 	<name>Unidad6</name>
 	<comment></comment>
 	<projects>
+		<project>POO</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

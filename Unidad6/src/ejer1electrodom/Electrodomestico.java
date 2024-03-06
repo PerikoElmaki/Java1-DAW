@@ -14,7 +14,7 @@ public class Electrodomestico {
 	protected String color;    //Color del aparato
 	
 	/**
-	 * Constructor por defecto 
+	 * Constructor por defecto  
 	 */
 	public Electrodomestico() {
 		preciobase=preciodefecto;
@@ -27,7 +27,7 @@ public class Electrodomestico {
 	 * @param price precio base
 	 * @param weight peso 
 	 */
-	public Electrodomestico(int price, int weight) {
+	public Electrodomestico(double price, double weight) {
 		preciobase=price;
 		peso=weight;
 		consumo=consumodefecto;
@@ -40,7 +40,7 @@ public class Electrodomestico {
 	 * @param consumo char A-F
 	 * @param color string
 	 */
-	public Electrodomestico(int preciobase, int peso, char consumo, String color) {
+	public Electrodomestico(double preciobase, double peso, char consumo, String color) {
 		this.preciobase = preciobase;
 		this.peso = peso;
 		//hacemos uso de procedimineto para consumo
@@ -89,7 +89,7 @@ public class Electrodomestico {
 	 * @return de la A a la F, si no por defecto
 	 */
 	private void comprobarConsumoEnergetico(char l) {
-		if(l>='A' || l<='F')
+		if(l>='A' && l<='F')
 			consumo=l;
 		else
 			consumo=consumodefecto;
@@ -111,7 +111,10 @@ public class Electrodomestico {
 		//mejorar haciendolo con un array y un bucle, con equals.
 		
 	}
-	
+	/**
+	 * Función que devuelve el precio final sumando los atributos
+	 * @return double- precio final
+	 */
 	public double precioFinal() {
 		double preciofin=0;
 		//establecemos consumo
@@ -138,15 +141,17 @@ public class Electrodomestico {
 		preciofin+=preciobase;
 		return preciofin;
 	}
+	
+	/**
+	 * Método toString
+	 */
 	@Override
 	public String toString() {
 		return "Electrodomestico:"
-				+"color: "+color+", peso= "+peso+"kg, consumo energético = "+consumo
+				+"color= "+color+", peso= "+peso+"kg, consumo energético = "+consumo
 				+", precio final= "+precioFinal();
 				
 	}
-	
-	
 	
 	
 	
