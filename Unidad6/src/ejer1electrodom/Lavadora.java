@@ -2,10 +2,10 @@ package ejer1electrodom;
 
 public class Lavadora extends Electrodomestico{
 	//Constante de carga
-	final protected double CARGA_DEF=5; //carga de la lavadora (kg)
+	final private int CARGA_DEF=5; //carga de la lavadora (kg)
 	
 	//Atributos 
-	protected double carga;
+	private int carga;
 	
 	/**
 	 * Constructor por defecto 
@@ -32,18 +32,12 @@ public class Lavadora extends Electrodomestico{
 	 * @param consumo
 	 * @param color
 	 */
-	public Lavadora(double carga,double preciobase,double peso,char consumo, String color) {
+	public Lavadora(int carga,double preciobase,double peso,char consumo, String color) {
 		super(preciobase,peso,consumo,color);
 		this.carga = carga;
 	}
 
-	/**
-	 * Devuelve el atributo carga
-	 * @return carga
-	 */
-	public double getCarga() {
-		return carga;
-	}
+	
 	/**
 	 * Función que devuelve el precio final haciendo uso de la función heredada
 	 * y sumando 50 si la carga(atributo lavadora) supera los 30 kg
@@ -58,7 +52,9 @@ public class Lavadora extends Electrodomestico{
 		
 		return incremento;
 	}
-
+	/**
+	 * Método que muestra por pantalla los atributos del objeto Lavadora
+	 */
 	@Override
 	public String toString() {
 		return "Lavadora: "+

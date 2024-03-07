@@ -45,13 +45,12 @@ public class Television extends Electrodomestico{
 	 * @return double precio final
 	 */
 	public double precioFinal() {
-		double incremento;
+		double preciofin=super.precioFinal();
 		if(resolucion>40)
-			incremento=super.precioFinal()*0.3;
-		else
-			incremento=super.precioFinal();
+			preciofin+=preciobase*0.3;
 		
-		return incremento;
+		
+		return preciofin;
 	}
 	/**
 	 */
