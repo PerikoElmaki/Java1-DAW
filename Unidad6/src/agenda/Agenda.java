@@ -30,7 +30,7 @@ public class Agenda {
 	 */
 	public boolean existeContacto(Contacto c) {
 		for(int i=0; i<contactos.length; i++) {
-			if(contactos[i].nombreIgual(c.getNombre()))
+			if(contactos[i].nombreIgual(c))
 				return true;
 		}
 		return false;
@@ -43,21 +43,63 @@ public class Agenda {
 	 */
 	public boolean agendaLlena() {
 		for(int i=0; i<contactos.length; i++) {
-			if(contactos[i].nombreIgual(""))
-				return false; // si se ha creado objeto por defecto
+			if(contactos[i]==null)
+				return false;
 		}
+		//Si no encuentra ninguno vacío, está llena
 		return true;
 	}
 	
-	
+	/**
+	 * Añade un nuevo contacto a la agenda 
+	 * @param c
+	 */
 	public void addContacto(Contacto c) {
 		if(agendaLlena())
 			System.err.println("La agenda está llena");
 		else if(existeContacto(c))
 			System.err.println("EL contacto ya existe");
 		else {
-			
+			boolean añadido=false; 
+				for(int i=0; i<contactos.length && !añadido; i++) {
+					if(contactos[i]==null) {
+						contactos[i]=c;
+						añadido=true;
+					}
+				}	
+			if(añadido)
+				System.out.println("Se ha añadido el contacto en la agenda");
 		}
-			
+	
+	
+	}
+	
+	/**
+	 * Devuelve huecos libres de agenda
+	 * @return int huecos
+	 */
+	public int huecosLibres() {
+		int conta=0;
+		for(int i=0; i<contactos.length; i++) {
+			if(contactos[i]==null)
+				conta++;
+		}
+		return conta;
+	}
+	/**
+	 * Lista los contactos de la agenda 
+	 */
+	public void listarContactos() {
+		//Primero comprobamos  si está vacía
+		if(huecosLibres()==contactos.length)
+			System.out.println("La agenda está vacía");
+		else {
+			System.out.println("Contactos: ");
+			for(int i=0; i<contactos.length; i++) {
+				if(contactos[i]!=null)
+					System.out.println(contactos[i].toString());
+			}
+		}
+		
 	}
 }
