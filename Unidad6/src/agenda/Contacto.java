@@ -61,10 +61,8 @@ public class Contacto {
 	 * @return true si son iguales, false si no 
 	 */
 	public boolean nombreIgual(Contacto n) {
+		return this.nombre.trim().equalsIgnoreCase(n.getNombre().trim());     //quitamos espacios de principio y final con trim
 		
-		if(this.nombre.trim().equalsIgnoreCase(n.getNombre().trim()))      //quitamos espacios de principio y final con trim
-			return true;
-		return false;
 	}
 
 	@Override

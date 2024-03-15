@@ -30,8 +30,10 @@ public class Agenda {
 	 */
 	public boolean existeContacto(Contacto c) {
 		for(int i=0; i<contactos.length; i++) {
-			if(contactos[i].nombreIgual(c))
-				return true;
+			if(contactos[i]!=null) {
+				if(c.equals(contactos[i]) )
+					return true;
+			}
 		}
 		return false;
 	}
@@ -102,4 +104,45 @@ public class Agenda {
 		}
 		
 	}
+	/**
+	 * Procedimiento que busca un contacto e imprime su teléfono si está en la agenda
+	 * si no está, avisa al usuario
+	 * @param nombre
+	 */
+	public void mostrarContacto(String nombre) {
+		boolean encontrado=false;
+		for(int i=0; i<contactos.length && !encontrado; i++) { //si encuentra al contacto para al bucle
+			if(contactos[i]!=null) {
+				if(nombre.trim().equalsIgnoreCase(contactos[i].getNombre().trim())); {
+					System.out.println("Teléfono: "+contactos[i].getTelefono());
+					encontrado=true;
+				}
+			}
+		
+		}
+		if(!encontrado)
+			System.err.println("-El contacto no se encuentra en la agenda");
+		
+	}
+	/**
+	 * Elimina el contacto 
+	 * @param c
+	 */
+	public void eliminarContacto(Contacto c) {
+		boolean encontrado=false;
+		for(int i=0; i<contactos.length && !encontrado; i++) { 
+			if(contactos[i]!=null) {
+				if(contactos[i].nombreIgual(c)) {
+					contactos[i]=null; //El contacto vuelve a null
+					encontrado=true; //para el bucle
+				}	
+			}
+		}
+		if(encontrado)
+			System.out.println("-Contacto eliminado");
+		else
+			System.err.println("-El contacto no se encuentra en la agenda");
+	}
+	
+	
 }
