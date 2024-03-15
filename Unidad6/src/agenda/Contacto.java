@@ -2,8 +2,8 @@ package agenda;
 
 public class Contacto {
 	//Atributos 
-	protected String nombre;
-	protected int telefono;
+	private String nombre;
+	private int telefono;
 	
 	/**C
 	 *COnstructor con parámetros
@@ -15,10 +15,10 @@ public class Contacto {
 		this.telefono = telefono;
 	}
 	/**
-	 * Constructor vacio 
+	 * Constructor solo con nombre
 	 */
-	public Contacto() {
-		this.nombre="";
+	public Contacto(String nombre) {
+		this.nombre=nombre;
 		this.telefono=0;
 	}
 
@@ -60,15 +60,14 @@ public class Contacto {
 	 * @param n nombre a comparar
 	 * @return true si son iguales, false si no 
 	 */
-	public boolean nombreIgual(String n) {
-		if(nombre.equals(n))
-			return true;
-		return false;
+	public boolean nombreIgual(Contacto n) {
+		return this.nombre.trim().equalsIgnoreCase(n.getNombre().trim());     //quitamos espacios de principio y final con trim
+		
 	}
 
 	@Override
 	public String toString() {
-		return "Contacto [nombre=" + nombre + ", telefono=" + telefono + "]";
+		return nombre + "-" + telefono ;
 	}
 	
 	
