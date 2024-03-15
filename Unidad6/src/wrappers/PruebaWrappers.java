@@ -17,6 +17,9 @@ public class PruebaWrappers {
 		
 		Double z=Double.valueOf(3.8);
 		System.out.println(z);
+		
+		Character c=Character.toLowerCase('A');
+		System.out.println(c.equals('a'));
 	}
 
 }

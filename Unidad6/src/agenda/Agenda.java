@@ -11,6 +11,9 @@ public class Agenda {
 	public Agenda() {
 		//por defecto agenda de 10 
 		this.contactos=new Contacto[10];
+		for(int i=0; i<contactos.length; i++) {
+			
+		}
 	}
 	
 	/**
