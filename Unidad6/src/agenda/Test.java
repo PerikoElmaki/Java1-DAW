@@ -11,7 +11,7 @@ public class Test {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		String nombre; //para no declarar en todos los casos
-		int num;
+		int num; //telefomo
 		int opcion=0; //cuando  sea 6 que pare 
 		Agenda a=new Agenda(5);
 		do {

@@ -14,6 +14,7 @@ public class LectorFileReader {
 			
 			//Lectura del fichero 
 			String linea=br.readLine();//el buffered es el que tiene readline
+			
 			while(linea!=null) {
 				System.out.println(linea);
 				linea=br.readLine();
