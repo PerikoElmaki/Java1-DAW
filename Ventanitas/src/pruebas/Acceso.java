@@ -34,7 +34,7 @@ public class Acceso extends JFrame {
 		
 		v.setTitle("Acceso");
 		v.setVisible(true);
-		v.setSize(300,100);
+		v.setSize(300,250);
 		v.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
 
