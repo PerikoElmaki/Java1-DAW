@@ -1,12 +1,29 @@
+package pruebas;
+import java.awt.*;
 import java.util.*;
 import javax.swing.*;
-public class ejresueltos extends JFrame{
+
+public class Fecha extends JFrame{
 	//Componentes 
 	JLabel labelVentana;
+	JButton boton;
+	JPanel panel1,panel2;
 	
-	public ejresueltos() {
+	public Fecha() {
+		
+		
+		labelVentana=new JLabel(fechaActual());
+		labelVentana.setFont(new Font("JetBrains Mono", Font.ITALIC,50));
+		labelVentana.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		
+		
+		//el border, sin espacios entre objetos 
+		setLayout(new BorderLayout(0,0));
+		add(labelVentana,BorderLayout.CENTER);
 		
 	}
+	
 	public static String fechaActual() {
 		String fecha="";
 		Date d=new Date();
@@ -46,8 +63,13 @@ public class ejresueltos extends JFrame{
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(fechaActual());
-
+		Fecha f=new Fecha();
+		f.setTitle("Fecha");
+		f.setSize(700,150);
+		f.setLocationRelativeTo(null);
+		f.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		f.setVisible(true);
+		
 	}
 
 }
