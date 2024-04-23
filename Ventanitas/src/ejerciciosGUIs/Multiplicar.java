@@ -1,4 +1,4 @@
-package eventos;
+package ejerciciosGUIs;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

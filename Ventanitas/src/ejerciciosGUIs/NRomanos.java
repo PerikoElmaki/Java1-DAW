@@ -1,4 +1,4 @@
-package eventos;
+package ejerciciosGUIs;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
