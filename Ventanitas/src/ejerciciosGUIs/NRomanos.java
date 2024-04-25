@@ -62,7 +62,7 @@ public class NRomanos extends JFrame implements ActionListener{
 		int  d=dato;
 		String s="";
 		while (d>0) {
-			while (d>=1000) {d-=1000; s+="M"; }
+			while (d>=1000) {d-=1000; s+="M"; } 
 			while (d>=900) {d-=900; s+="CM"; }
 			while (d>=500) {d-=500; s+="D"; }
 			while (d>=400) {d-=400; s+="CD"; }
@@ -93,7 +93,7 @@ public class NRomanos extends JFrame implements ActionListener{
 	}
 	public static void main(String[] args) {
 		NRomanos v=new NRomanos();
-		v.setTitle("COnversor decimal > romanos");
+		v.setTitle("Conversor decimal > Numero romano");
 		v.setLocationRelativeTo(null);
 		v.setSize(400,200);
 		v.setVisible(true);

@@ -53,7 +53,7 @@ public class Window extends JFrame {
 		textField_2.setColumns(10);
 		
 		JLabel x = new JLabel("New label");
-		x.setBounds(41, 44, 69, 28);
+		x.setBounds(408, 0, 61, 57);
 		getContentPane().add(x);
 
 	}
