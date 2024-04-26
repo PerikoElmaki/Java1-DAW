@@ -1,5 +1,6 @@
 package ejerciciosGUIs;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -27,7 +28,7 @@ public class NRomanos extends JFrame implements ActionListener{
 		
 		
 		//Panel 2 boton imagen 
-		boton=new JButton(new ImageIcon("C:\\Users\\El Maki\\Mi unidad\\ProyectosJava\\flecha.png"));
+		boton=new JButton(new ImageIcon("E:\\FicherosPR\\flecha.png"));
 		//boton transparente 
 		boton.setContentAreaFilled(false);  //quitamos relleno
 		boton.setBorder(null); 				//quitamos bordes
@@ -50,6 +51,7 @@ public class NRomanos extends JFrame implements ActionListener{
 		add(panel2);
 		add(panel3);
 		
+		getContentPane().setBackground(Color.darkGray);
 		
 		
 	}
