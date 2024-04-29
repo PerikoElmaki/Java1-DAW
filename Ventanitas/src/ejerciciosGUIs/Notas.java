@@ -56,12 +56,17 @@ public class Notas extends JFrame implements ActionListener{
 				s.setLocationRelativeTo(null);
 				s.setLayout(new FlowLayout(FlowLayout.CENTER,50,50));
 				JLabel m=new JLabel();
+				
 				if(Integer.parseInt(texto.getText())<5){
 					s.getContentPane().setBackground(Color.pink);
 					s.setTitle("SUSPENSO");
 					m.setText("Estás suspenso jefe");
 					
 					s.add(m);
+				}else {
+					s.getContentPane().setBackground(Color.green);
+					s.setTitle("APROBAOOOO");
+					m.setText("");
 				}
 			}
 		} catch (Exception e2) {
