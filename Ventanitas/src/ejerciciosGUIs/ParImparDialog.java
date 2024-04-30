@@ -63,11 +63,13 @@ public class ParImparDialog extends JFrame implements ActionListener{
 		try {
 			if(e.getSource()==botonDo) {
 				if(esPar(Integer.parseInt(texthueco.getText()))) {
-					setTitle("PAR");
 					getContentPane().setBackground(Color.GREEN);
+					JOptionPane.showMessageDialog(this,"PAR" );
+					
+					
 				}else {
-					setTitle("IMPAR");
 					getContentPane().setBackground(Color.MAGENTA);
+					JOptionPane.showMessageDialog(this,"IMPAR" );
 				}
 			}
 		} catch (Exception e2) {
