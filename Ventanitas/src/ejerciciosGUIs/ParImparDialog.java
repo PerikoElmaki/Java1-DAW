@@ -64,7 +64,7 @@ public class ParImparDialog extends JFrame implements ActionListener{
 			if(e.getSource()==botonDo) {
 				if(esPar(Integer.parseInt(texthueco.getText()))) {
 					getContentPane().setBackground(Color.GREEN);
-					JOptionPane.showMessageDialog(this,"PAR" );
+					JOptionPane.showMessageDialog(null,"PAR");
 					
 					
 				}else {
