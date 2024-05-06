@@ -50,7 +50,19 @@ public class BuscarPalabra extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		if(e.getSource()==boton) {
+			String texto=area.getText().toLowerCase();
+			String palabra=text.getText().toLowerCase();
+			
+			if(palabra.length()==0) //controlamos
+				JOptionPane.showMessageDialog(this, "Introduce palabra a buscar","ERROR",JOptionPane.ERROR_MESSAGE);
+			else {
+				if(texto.indexOf(palabra)==-1)//-1 si no encuentra palabra
+					JOptionPane.showMessageDialog(this, "No se encuentra la palabra","NOT FOUND",JOptionPane.INFORMATION_MESSAGE);
+				else
+					JOptionPane.showMessageDialog(this, "Se ha encontrado ("+palabra+") en el texto");
+			}
+		}
 		
 	}
 
