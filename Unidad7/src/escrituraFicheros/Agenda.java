@@ -84,7 +84,7 @@ public class Agenda {
 			Scanner s=new Scanner(f);  
 			while(s.hasNextLine() && !encontrado) {
 				String linea=s.nextLine(); 
-				String nameAgenda=linea.substring(0, linea.indexOf('>')).trim(); //coges subcadena del principio, hasta el caracter >
+				String nameAgenda=linea.substring(0,linea.indexOf('>')).trim(); //coges subcadena del principio, hasta el caracter >
 				
 				if(nameAgenda.compareToIgnoreCase(nom)==0){//si el nombre coincide
 					String telefono=linea.substring(linea.indexOf('>')+1).trim(); 
