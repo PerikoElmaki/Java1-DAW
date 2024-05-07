@@ -1,9 +1,9 @@
 package ejerciciosGUIs;
 
-import java.awt.Color;
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.Image;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -15,7 +15,7 @@ import javax.swing.*;
 public class Translate extends JFrame implements ActionListener {
 	
 	//ruta text 
-	private static String ruta="C:\\Users\\El Maki\\Mi unidad\\ProyectosJava\\dictionary.txt";
+	private static String ruta="H:\\Mi unidad\\ProyectosJava\\dictionary.txt";
 
 	//Componentes 
 	JLabel ingles,español;
@@ -35,7 +35,7 @@ public class Translate extends JFrame implements ActionListener {
 			
 			
 		//Panel 2 boton imagen 
-		boton=new JButton(new ImageIcon("C:\\Users\\El Maki\\Mi unidad\\ProyectosJava\\flecha.png"));
+		boton=new JButton(new ImageIcon("H:\\Mi unidad\\ProyectosJava\\flecha.png"));
 		//boton transparente 
 		boton.setContentAreaFilled(false);  //quitamos relleno
 		boton.setBorder(null); 				//quitamos bordes
@@ -80,8 +80,8 @@ public class Translate extends JFrame implements ActionListener {
 				if(ingles.compareToIgnoreCase(esp)==0){//si el nombre coincide
 					trans=linea.substring(linea.indexOf('=')+1).trim(); 
 					encontrado=true;
-				}else
-					trans="No está en el diccionario";
+				}
+					
 			}
 			s.close();
 			
@@ -99,7 +99,7 @@ public class Translate extends JFrame implements ActionListener {
 		v.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		v.setTitle("Google translate");
 		
-		ImageIcon icono=new ImageIcon("C:\\Users\\El Maki\\Mi unidad\\ProyectosJava\\g.png");
+		ImageIcon icono=new ImageIcon("H:\\Mi unidad\\ProyectosJava\\g.png");
 		v.setIconImage(icono.getImage());
 		
 	}
@@ -110,7 +110,12 @@ public class Translate extends JFrame implements ActionListener {
 			try {
 				String portraducir=textingles.getText();
 				//aplicamos funcion y la insertamos en el otro textfield
-				textesp.setText(buscarPalabra(portraducir));
+				
+				if(buscarPalabra(portraducir)=="")
+					JOptionPane.showMessageDialog(this, "Palabra no encontrada en el diccionario","NOT FOUND",JOptionPane.ERROR_MESSAGE);
+				else
+					textesp.setText(buscarPalabra(portraducir));
+					
 			} catch (Exception e2) {
 				JOptionPane.showMessageDialog(this,"ERROR en la traducción","ERROR",JOptionPane.ERROR_MESSAGE);// en vez de error, hay más 
 			}
