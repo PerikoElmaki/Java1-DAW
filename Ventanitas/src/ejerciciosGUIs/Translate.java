@@ -27,7 +27,7 @@ public class Translate extends JFrame implements ActionListener {
 			
 		//Panel 1 izquierda
 		textingles=new JTextField(10);
-		ingles=new JLabel("Inglés",JLabel.CENTER);
+		ingles=new JLabel("Word to translate: ",JLabel.CENTER);
 
 		panel1=new JPanel(new GridLayout(2,1,0,10));
 		panel1.add(ingles);
@@ -35,7 +35,7 @@ public class Translate extends JFrame implements ActionListener {
 			
 			
 		//Panel 2 boton imagen 
-		boton=new JButton(new ImageIcon("H:\\Mi unidad\\ProyectosJava\\flecha.png"));
+		boton=new JButton(new ImageIcon("H:\\Mi unidad\\ProyectosJava\\boton.png"));
 		//boton transparente 
 		boton.setContentAreaFilled(false);  //quitamos relleno
 		boton.setBorder(null); 				//quitamos bordes
@@ -47,7 +47,7 @@ public class Translate extends JFrame implements ActionListener {
 			
 		//Tercer panel con label y conversion
 		textesp=new JTextField(10);
-		español=new JLabel("Español", JLabel.CENTER);
+		español=new JLabel("Translation: ", JLabel.CENTER);
 		panel3=new JPanel(new GridLayout(0,1,0,10));
 		panel3.add(español);
 		panel3.add(textesp);
@@ -75,7 +75,7 @@ public class Translate extends JFrame implements ActionListener {
 			Scanner s=new Scanner(f);  
 			while(s.hasNextLine() && !encontrado) {
 				String linea=s.nextLine(); 
-				String ingles=linea.substring(0, linea.indexOf('=')).trim(); //coges subcadena del principio, hasta el caracter >
+				String ingles=linea.substring(0, linea.indexOf('=')).trim(); //coges subcadena del principio, hasta el caracter =
 				
 				if(ingles.compareToIgnoreCase(esp)==0){//si el nombre coincide
 					trans=linea.substring(linea.indexOf('=')+1).trim(); 
@@ -97,7 +97,7 @@ public class Translate extends JFrame implements ActionListener {
 		v.setLocationRelativeTo(null);
 		v.setSize(400,200);
 		v.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		v.setTitle("Google translate");
+		v.setTitle("Dictionary");
 		
 		ImageIcon icono=new ImageIcon("H:\\Mi unidad\\ProyectosJava\\g.png");
 		v.setIconImage(icono.getImage());
@@ -110,11 +110,16 @@ public class Translate extends JFrame implements ActionListener {
 			try {
 				String portraducir=textingles.getText();
 				//aplicamos funcion y la insertamos en el otro textfield
+				if(textingles.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(this, "Enter a word to translate,please","Warning",JOptionPane.WARNING_MESSAGE);
+				}else {
+					if(buscarPalabra(portraducir)=="")
+						JOptionPane.showMessageDialog(this, "Sorry, the word is not found in our dictionary",textingles.getText(),JOptionPane.INFORMATION_MESSAGE);
+					else
+						textesp.setText(buscarPalabra(portraducir));
+				}
 				
-				if(buscarPalabra(portraducir)=="")
-					JOptionPane.showMessageDialog(this, "Palabra no encontrada en el diccionario","NOT FOUND",JOptionPane.ERROR_MESSAGE);
-				else
-					textesp.setText(buscarPalabra(portraducir));
+				
 					
 			} catch (Exception e2) {
 				JOptionPane.showMessageDialog(this,"ERROR en la traducción","ERROR",JOptionPane.ERROR_MESSAGE);// en vez de error, hay más 

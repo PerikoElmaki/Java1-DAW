@@ -10,7 +10,6 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.*;
 import javax.swing.*;
-import javax.swing.filechooser.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
