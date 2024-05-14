@@ -16,6 +16,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.security.spec.ECFieldF2m;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
 
 public class Principal extends JFrame implements ActionListener{
 
@@ -67,9 +70,31 @@ public class Principal extends JFrame implements ActionListener{
 		
 		btnNuevoCont = new JButton("Nuevo Contacto");
 		btnNuevoCont.addActionListener(this);
-		btnNuevoCont.setFont(new Font("Coolvetica Condensed Rg", Font.PLAIN, 16));
+		btnNuevoCont.setFont(new Font("JetBrains Mono Medium", Font.PLAIN, 12));
 		btnNuevoCont.setBounds(35, 140, 144, 23);
 		panelMenu.add(btnNuevoCont);
+		
+		JPanel panelTitle = new JPanel();
+		panelTitle.setBounds(291, 35, 409, 43);
+		panelBackgr.add(panelTitle);
+		
+		JLabel Labeltitle = new JLabel("AGENDA");
+		Labeltitle.setFont(new Font("Pricedown Bl", Font.BOLD, 33));
+		GroupLayout gl_panelTitle = new GroupLayout(panelTitle);
+		gl_panelTitle.setHorizontalGroup(
+			gl_panelTitle.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_panelTitle.createSequentialGroup()
+					.addContainerGap(148, Short.MAX_VALUE)
+					.addComponent(Labeltitle, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+					.addGap(137))
+		);
+		gl_panelTitle.setVerticalGroup(
+			gl_panelTitle.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelTitle.createSequentialGroup()
+					.addComponent(Labeltitle)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		panelTitle.setLayout(gl_panelTitle);
 		
 		setLocationRelativeTo(null);
 	

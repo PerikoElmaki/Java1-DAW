@@ -22,7 +22,7 @@ public class NuevoContacto extends JPanel implements ActionListener {
 	private JButton boton;
 	private JTextField textnombrecontacto,texttlfcontacto;
 	
-	final static String rutaArchivo="C:\\Users\\El Maki\\Mi unidad\\ProyectosJava\\agenda.txt";
+	final static String rutaArchivo="H:\\Mi unidad\\ProyectosJava\\agenda.txt";
 	
 
 	
