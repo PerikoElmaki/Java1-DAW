@@ -1,0 +1,95 @@
+package agenda;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Color;
+
+import javax.swing.Action;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.security.spec.ECFieldF2m;
+
+public class Principal extends JFrame implements ActionListener{
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane,panelBackgr ;
+	private JButton btnNuevoCont;
+	private NuevoContacto n;
+	
+	public final static String rutaArchivo="C:\\Users\\El Maki\\Mi unidad\\ProyectosJava";
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Principal frame = new Principal();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Principal() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 800, 501);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		panelBackgr = new JPanel();
+		
+		panelBackgr.setBounds(0, 0, 784, 462);
+		contentPane.add(panelBackgr);
+		panelBackgr.setLayout(null);
+		
+		JPanel panelMenu = new JPanel();
+		panelMenu.setBackground(new Color(32, 33, 29));
+		panelMenu.setBounds(0, 0, 211, 462);
+		panelBackgr.add(panelMenu);
+		panelMenu.setLayout(null);
+		
+		btnNuevoCont = new JButton("Nuevo Contacto");
+		btnNuevoCont.addActionListener(this);
+		btnNuevoCont.setFont(new Font("Coolvetica Condensed Rg", Font.PLAIN, 16));
+		btnNuevoCont.setBounds(35, 140, 144, 23);
+		panelMenu.add(btnNuevoCont);
+		
+		setLocationRelativeTo(null);
+	
+		
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		if(e.getSource()==btnNuevoCont) {
+			NuevoContacto n = new NuevoContacto();
+			n.setBounds(211, 139, 574, 323);
+			n.setVisible(true);
+			panelBackgr.add(n);
+			panelBackgr.validate();
+			
+			
+			
+		}
+			
+	}
+}
