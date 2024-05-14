@@ -25,16 +25,19 @@ public class VentanaAhorcado extends JFrame implements ActionListener{
 		
 		title=new JLabel("AHORCADO");
 		title.setFont(new Font("Pricedown Bl", Font.BOLD, 33));
-		gif=new JLabel(new ImageIcon(rutagif));
-		gif.setSize(150,150);
+		
 		panel1=new JPanel(new GridLayout(1,2,30,30));
 		panel1.add(title);
-		panel1.add(gif);
 		
+		panel2=new JPanel(new GridLayout(1,2,20,20));
+		labelpista=new JLabel(h.getPalabraMostrar());
+		labelintentos=new JLabel("Intentos: "+h.getIntentos());
+		panel2.add(labelpista);
+		panel2.add(labelintentos);
 		
-		
-		panelprinc=new JPanel(new GridLayout(1,2,10,10));
+		panelprinc=new JPanel(new GridLayout(2,1,10,10));
 		panelprinc.add(panel1);
+		panelprinc.add(panel2);
 		
 		setLayout(new FlowLayout(FlowLayout.CENTER,30,30));
 		add(panelprinc);
