@@ -50,7 +50,6 @@ public class MayorEdad extends JFrame implements ActionListener{
 		panel1.add(tñ);
 		
 		
-		
 		botn=new JButton("Comprobar");
 		botn.addActionListener(this);
 		panelbot=new JPanel(new FlowLayout(FlowLayout.CENTER,10,10));
