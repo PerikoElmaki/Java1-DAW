@@ -102,10 +102,12 @@ public class NuevoContacto extends JPanel implements ActionListener {
 	                	FileWriter fw = null;
 	            		PrintWriter pw=null;
 	            		try {
-	            			System.out.println("gjhi");
+	            			System.out.println("añadido");
 	            			fw=new FileWriter(rutaArchivo,true);//El true para que sobreescriba, si no crea un nuevo archivo cada vez
 	            			pw=new PrintWriter(fw);
 	            			pw.println(nomNuevo+":"+tlfNuevo); //añadimos contacto
+	            			
+	            			JOptionPane.showMessageDialog(null,"Contacto añadido");
 	            	
 	            		} catch (Exception e3) {
 	            			System.out.println("ERROR con el archivo de la agenda");

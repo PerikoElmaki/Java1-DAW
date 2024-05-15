@@ -8,14 +8,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 
-import javax.swing.Action;
+
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.security.spec.ECFieldF2m;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
@@ -74,6 +71,11 @@ public class Principal extends JFrame implements ActionListener{
 		btnNuevoCont.setBounds(35, 140, 144, 23);
 		panelMenu.add(btnNuevoCont);
 		
+		JButton btnListarContactos = new JButton("Listar Contactos");
+		btnListarContactos.setFont(new Font("JetBrains Mono Medium", Font.PLAIN, 12));
+		btnListarContactos.setBounds(35, 199, 144, 23);
+		panelMenu.add(btnListarContactos);
+		
 		JPanel panelTitle = new JPanel();
 		panelTitle.setBounds(291, 35, 409, 43);
 		panelBackgr.add(panelTitle);
@@ -98,8 +100,6 @@ public class Principal extends JFrame implements ActionListener{
 		
 		setLocationRelativeTo(null);
 	
-		
-		
 	}
 
 	@Override
@@ -108,13 +108,12 @@ public class Principal extends JFrame implements ActionListener{
 		if(e.getSource()==btnNuevoCont) {
 			NuevoContacto n = new NuevoContacto();
 			n.setBounds(211, 139, 574, 323);
+			panelBackgr.validate();
 			n.setVisible(true);
 			panelBackgr.add(n);
-			panelBackgr.validate();
-			
-			
 			
 		}
+		
 			
 	}
 }
