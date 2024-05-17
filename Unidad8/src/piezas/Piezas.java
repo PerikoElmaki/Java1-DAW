@@ -10,7 +10,38 @@ import java.sql.Statement;
 
 import javax.swing.table.DefaultTableModel;
 
+
 public class Piezas extends JFrame {
+	/*
+	 * Constructor para ventana 
+	 */
+	public Piezas() {
+		setLayout(new FlowLayout(FlowLayout.CENTER,10,20));
+		
+		DefaultTableModel modelo=new DefaultTableModel(); //lo usaremos en clase jtbale 
+		String atributos[]= {"Código","Nombre","Color","Peso","Ciudad"}; //array de string para los títulos de las columnas 
+		modelo.setColumnIdentifiers(atributos);
+		
+		JTable tabla=new JTable();
+		tabla.setModel(modelo);
+		
+		JScrollPane sc=new JScrollPane(tabla);
+		add(sc);
+		
+		//Insertamos datos en tabla
+		obtenerConexion();
+		mostrarTabla(modelo);
+		desconectar();
+	}
+	
+	public static void main(String[] args) {
+		Piezas pt=new Piezas();
+		pt.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		pt.setTitle("Piezas");
+		pt.pack();
+		pt.setVisible(true);
+	}
+	
 	//Variable para hacer la conexion 
 	private Connection conexion=null;
 	
@@ -93,6 +124,7 @@ public class Piezas extends JFrame {
 			fila[2]=rs.getString("color");
 			fila[3]=rs.getInt("peso");
 			fila[4]=rs.getString("ciudad");
+			t.addRow(fila);
 		}
 		st.close();
 		rs.close();

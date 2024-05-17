@@ -10,7 +10,7 @@ import java.sql.Statement;
 
 import javax.swing.table.DefaultTableModel;
 
-public class Piezas extends JFrame {
+public class Piezas2 extends JFrame {
 	//Variable para hacer la conexion 
 	private Connection conexion=null;
 	

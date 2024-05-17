@@ -1,4 +1,4 @@
-package piezas;
+package piezastabla;
 
 import java.awt.FlowLayout;
 import java.sql.Connection;
@@ -11,6 +11,40 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 
 public class Piezas extends JFrame {
+	/*
+	 * Constructor para ventana 
+	 */
+	public Piezas() {
+		setLayout(new FlowLayout(FlowLayout.CENTER,10,20));
+		
+		DefaultTableModel modelo=new DefaultTableModel(); //lo usaremos en clase jtbale 
+		String atributos[]= {"Código","Nombre","Color","Peso","Ciudad"}; //array de string para los títulos de las columnas 
+		modelo.setColumnIdentifiers(atributos);
+		
+		JTable tabla=new JTable();
+		tabla.setModel(modelo);
+		
+		JScrollPane sc=new JScrollPane(tabla);
+		add(sc);
+		
+		//Insertamos datos en tabla
+		obtenerConexion();
+		mostrarTabla(modelo);
+		desconectar();
+	}
+	
+	public static void main(String[] args) {
+		Piezas pt=new Piezas();
+		pt.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		pt.setTitle("Piezas");
+		pt.pack();
+		pt.setVisible(true);
+	}
+	
+	
+	
+	
+	
 	//Variable para hacer la conexion 
 	private Connection conexion=null;
 	
@@ -48,33 +82,6 @@ public class Piezas extends JFrame {
 		}
 	}
 	
-	/*
-	 * Método para mostrar
-	 */
-	public void mostrar() {
-		try {
-			String consulta="SELECT * from P"; //Aqui consulta con condiciones y todo 
-			
-			Statement st=conexion.createStatement(); //permite realizar operaciones sql 
-			ResultSet rs=st.executeQuery(consulta); //le podriamos meter directamente un string con consulta 
-			
-			//Imprimimos resultado 
-			//el REsultset se lee como si fuese un archivo de texto, por lineas 
-			while(rs.next()) {
-				System.out.print("\n"+rs.getString("pn"));                  //getString coge solo los valores de la columna 
-				System.out.print("\t"+rs.getString("color"));				//la columna, debemos especificar qué columna aparece
-				System.out.print("\t"+rs.getInt("peso"));
-				System.out.print("\t"+rs.getString("pnombre")); 			//las condiciones van en la consulta pero para mostrar 	
-				System.out.print("\t"+rs.getString("ciudad"));
-			}
-			//cerramos los dos 
-			st.close();
-			rs.close();
-			
-		} catch (SQLException e) {
-			System.out.println("ERROR en la consulta");
-		}
-	}
 	
 	/*
 	 * para Mostrar la tabla 
