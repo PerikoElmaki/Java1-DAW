@@ -21,8 +21,9 @@ public class Principal extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane,panelBackgr ;
-	private JButton btnNuevoCont;
+	private JButton btnNuevoCont,btnListarContactos;
 	private NuevoContacto n;
+	private ListarContactos l;
 	
 	public final static String rutaArchivo="C:\\Users\\El Maki\\Mi unidad\\ProyectosJava";
 	/**
@@ -45,6 +46,7 @@ public class Principal extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public Principal() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 501);
 		contentPane = new JPanel();
@@ -67,28 +69,29 @@ public class Principal extends JFrame implements ActionListener{
 		
 		btnNuevoCont = new JButton("Nuevo Contacto");
 		btnNuevoCont.addActionListener(this);
-		btnNuevoCont.setFont(new Font("JetBrains Mono Medium", Font.PLAIN, 12));
+		btnNuevoCont.setFont(new Font("Segoe UI", Font.BOLD, 12));
 		btnNuevoCont.setBounds(35, 140, 144, 23);
 		panelMenu.add(btnNuevoCont);
 		
-		JButton btnListarContactos = new JButton("Listar Contactos");
-		btnListarContactos.setFont(new Font("JetBrains Mono Medium", Font.PLAIN, 12));
+		btnListarContactos = new JButton("Listar Contactos");
+		btnListarContactos.setFont(new Font("Segoe UI", Font.BOLD, 12));
 		btnListarContactos.setBounds(35, 199, 144, 23);
 		panelMenu.add(btnListarContactos);
+		btnListarContactos.addActionListener(this);
 		
 		JPanel panelTitle = new JPanel();
 		panelTitle.setBounds(291, 35, 409, 43);
 		panelBackgr.add(panelTitle);
 		
 		JLabel Labeltitle = new JLabel("AGENDA");
-		Labeltitle.setFont(new Font("Pricedown Bl", Font.BOLD, 33));
+		Labeltitle.setFont(new Font("Dialog", Font.BOLD, 26));
 		GroupLayout gl_panelTitle = new GroupLayout(panelTitle);
 		gl_panelTitle.setHorizontalGroup(
-			gl_panelTitle.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panelTitle.createSequentialGroup()
+			gl_panelTitle.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panelTitle.createSequentialGroup()
 					.addContainerGap(148, Short.MAX_VALUE)
-					.addComponent(Labeltitle, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
-					.addGap(137))
+					.addComponent(Labeltitle, GroupLayout.PREFERRED_SIZE, 164, GroupLayout.PREFERRED_SIZE)
+					.addGap(97))
 		);
 		gl_panelTitle.setVerticalGroup(
 			gl_panelTitle.createParallelGroup(Alignment.LEADING)
@@ -112,6 +115,13 @@ public class Principal extends JFrame implements ActionListener{
 			n.setVisible(true);
 			panelBackgr.add(n);
 			
+		}
+		if(e.getSource()==btnListarContactos) {
+			ListarContactos l=new ListarContactos();
+			l.setBounds(211, 139, 574, 323);
+			panelBackgr.validate();
+			l.setVisible(true);
+			panelBackgr.add(l);
 		}
 		
 			

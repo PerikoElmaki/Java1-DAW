@@ -25,8 +25,8 @@ public class ListarContactos extends JPanel implements ActionListener{
 		area=new JTextArea(20,30);
 		panel.add(area);
 		
-		boton=new JButton("Mostrar");
-		boton.addActionListener(this);
+		add(panel);
+		
 	}
 
 	@Override
