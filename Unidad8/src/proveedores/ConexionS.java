@@ -1,5 +1,7 @@
-package piezas;
+package proveedores;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,28 +9,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.swing.DefaultBoundedRangeModel;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class ConexionP {
+
+public class ConexionS extends JFrame implements ActionListener {
+	//Componentes 
+	JTextField codigo,nombre,color,peso,ciudad;
+	JLabel nueva,listado,cod,nom,col,pes,ciu;
+	JButton guardar,borrar;
+	JScrollPane sc;
+	JTable tabla;
+		
+		
 	//Variable para hacer la conexion 
 	private Connection conexion=null;
-	
+		
 	//Nombre archivo donde está la base 
 	private String nombreBD="E:\\s-p-sp\\S-P-SP"; //lo ultimo es el prefijo de los archivos, y los coge todos 
-	
+		
 	//Driver usado para conenctarnos 
 	private String driver="org.hsqldb.jdbcDriver";
 	
 	//URL 
 	private String url="jdbc:hsqldb:file:"+nombreBD;
-	
+		
 	/**
 	 * Constructor obtiene conexion a base ded atos 
 	 */
-	public ConexionP() {
+	public ConexionS() {
 		try {
 			if(conexion==null) {
 				Class.forName(driver);
@@ -53,24 +62,23 @@ public class ConexionP {
 	/*
 	 * Método para mostrar datos de la tabla en una jtable
 	 */
-	public void mostrarP (JTable t){
+	public void mostrarS (JTable t){
 		try {
-			String consulta="select * from P";
+			String consulta="select * from S";
 			Statement st=conexion.createStatement(); //permite realizar operaciones sql 
 			ResultSet rs=st.executeQuery(consulta); //le podriamos meter directamente un string con consulta 
 			
 			DefaultTableModel modelo=new DefaultTableModel();
-			String atributos[]= {"Código","Nombre","Color","Peso","Ciudad"};
+			String atributos[]= {"Código","Nombre","Estado","Ciudad"};
 			modelo.setColumnIdentifiers(atributos);
 			
 			Object[] fila=new Object[modelo.getColumnCount()];
 			
 			while(rs.next()) {
-				fila[0]=rs.getString("pn");
-				fila[1]=rs.getString("pnombre");
-				fila[2]=rs.getString("color");
-				fila[3]=rs.getInt("peso");
-				fila[4]=rs.getString("ciudad");
+				fila[0]=rs.getString("sn");
+				fila[1]=rs.getString("snombre");
+				fila[2]=rs.getInt("estado");
+				fila[3]=rs.getString("ciudad");
 				modelo.addRow(fila);
 			}
 			t.setModel(modelo);
@@ -82,26 +90,24 @@ public class ConexionP {
 		}
 	}
 	
+	/*
+	 * Método para insertar en tabla 
+	 */
 	
-	public void insertarP(String cod,String nom,String col,String pes,String ciud) {
+	public void insertarP(String cod,String nom,String est,String ciud) {
 		try {
-			String sql="INSERT INTO P VALUES (?,?,?,?,?);";
+			String sql="INSERT INTO S VALUES (?,?,?,?);";
 			
 			PreparedStatement pst=conexion.prepareStatement(sql);
 			
 			pst.setString(1, cod);
 			pst.setString(2, nom);
-			pst.setString(5, ciud);
+			pst.setString(4, ciud);
 			
-			if(col.isEmpty())
-				pst.setString(3, null);
+			if(est.isEmpty())
+				pst.setString(3, null); //primer atributo columna
 			else
-				pst.setString(3, col);
-			
-			if(pes.isEmpty())
-				pst.setString(4, null);
-			else
-				pst.setInt(4, Integer.parseInt(pes));
+				pst.setInt(3, Integer.parseInt(est));
 			
 			pst.executeUpdate(); //ejecuta sentencia
 			
@@ -111,5 +117,10 @@ public class ConexionP {
 			JOptionPane.showMessageDialog(null, "No se ha podido mostrar la tabla","ERROR CONSULTA",JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Esbozo de método generado automáticamente
 		
+	}
 }
