@@ -107,9 +107,6 @@ public class ConexionP {
 			
 			pst.close();
 			
-			
-			
-			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "No se ha podido mostrar la tabla","ERROR CONSULTA",JOptionPane.ERROR_MESSAGE);
 		}

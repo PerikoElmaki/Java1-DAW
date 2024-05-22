@@ -70,12 +70,12 @@ public class VentanaAhorcado extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==boton) {
-			if(resol.getText().length()>1) {
-				JOptionPane.showMessageDialog(null, "Introduce un carácter para comprobar o escribe RESUELVO para resolver","AVISO",JOptionPane.WARNING_MESSAGE);
+			String res=resol.getText();
+			if(res.substring(0, 8).equalsIgnoreCase("resuelvo")) {
+				boton.setText("RESOLVER");
 			}else {
-				String res=resol.getText();
-				if(res.equalsIgnoreCase("resuelvo")) {
-					boton.setText("RESOLVER");
+				if(res.length()<1) {
+					JOptionPane.showMessageDialog(null, "Introduce un carácter para comprobar o escribe RESUELVO para resolver","AVISO",JOptionPane.WARNING_MESSAGE);
 				}
 			}
 		}

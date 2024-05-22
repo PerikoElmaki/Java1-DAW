@@ -21,8 +21,9 @@ public class Menu extends JFrame implements ActionListener{
 		
 		//Creamos el menu y añadimos a menubar 
 		//puede haber un menu dentro de otro menu 
-		menu=new JMenu("Colores");
+		menu=new JMenu("Menú");
 		menubar.add(menu);
+		
 		
 		//Creamos item y asociamos a menu
 		mitem1=new JMenuItem("Rojo");
