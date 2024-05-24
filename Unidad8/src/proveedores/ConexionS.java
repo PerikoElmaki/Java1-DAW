@@ -64,7 +64,7 @@ public class ConexionS extends JFrame implements ActionListener {
 	 */
 	public void mostrarS (JTable t){
 		try {
-			String consulta="select * from S";
+			String consulta="select * from S";  //cambiar consulta
 			Statement st=conexion.createStatement(); //permite realizar operaciones sql 
 			ResultSet rs=st.executeQuery(consulta); //le podriamos meter directamente un string con consulta 
 			

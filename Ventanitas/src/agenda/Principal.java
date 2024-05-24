@@ -110,16 +110,22 @@ public class Principal extends JFrame implements ActionListener{
 		
 		if(e.getSource()==btnNuevoCont) {
 			NuevoContacto n = new NuevoContacto();
+			l.setVisible(false);
 			n.setBounds(211, 139, 574, 323);
 			panelBackgr.validate();
 			n.setVisible(true);
 			panelBackgr.add(n);
 			
+			
 		}
 		if(e.getSource()==btnListarContactos) {
+			n.setVisible(false);
 			ListarContactos l=new ListarContactos();
+			System.out.println("ke pasa");
+		
+			
 			l.setBounds(211, 139, 574, 323);
-			panelBackgr.validate();
+		
 			l.setVisible(true);
 			panelBackgr.add(l);
 		}
